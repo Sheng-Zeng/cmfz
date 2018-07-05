@@ -24,9 +24,9 @@ public class AdminController {
     @RequestMapping("/login")
     public String adminLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session, String adminName, String adminPwd, String enCode, String rember) {
         String vcode = (String) session.getAttribute("vercode");
-        if (vcode.equalsIgnoreCase(enCode)) {
+        if (vcode!=null && vcode.equalsIgnoreCase(enCode)) {
             Admin admin = adminService.adminLogin(adminName,adminPwd);
-            if (rember.equalsIgnoreCase("true")) {
+            if (rember!=null && "true".equalsIgnoreCase(rember)) {
                 String username = null;
                 try {
                     username = URLEncoder.encode(adminName,"utf-8");
