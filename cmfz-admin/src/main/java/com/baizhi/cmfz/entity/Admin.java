@@ -1,6 +1,8 @@
 package com.baizhi.cmfz.entity;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable {
     private String adminId;
 
     private String adminName;
@@ -49,5 +51,16 @@ public class Admin {
 
     public void setAdminStatus(String adminStatus) {
         this.adminStatus = adminStatus == null ? null : adminStatus.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminId='" + adminId + '\'' +
+                ", adminName='" + adminName + '\'' +
+                ", adminPwd='" + adminPwd + '\'' +
+                ", adminSolt='" + adminSolt + '\'' +
+                ", adminStatus='" + adminStatus + '\'' +
+                '}';
     }
 }

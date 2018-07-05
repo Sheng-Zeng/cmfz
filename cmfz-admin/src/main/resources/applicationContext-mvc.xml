@@ -35,7 +35,7 @@
     </bean>
 
     <!--视图解析器-->
-    <bean id="" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="suffix" value=".jsp"></property>
         <property name="prefix" value="/"></property>
     </bean>

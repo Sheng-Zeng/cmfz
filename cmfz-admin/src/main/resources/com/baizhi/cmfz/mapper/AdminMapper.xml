@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.AdminDAO">
+    <resultMap id="resultAdmin" type="com.baizhi.cmfz.entity.Admin">
+        <id property="adminId" column="admin_id"></id>
+        <result property="adminName" column="admin_name"></result>
+        <result property="adminPwd" column="admin_pwd" ></result>
+        <result property="adminSolt" column="admin_solt" ></result>
+        <result property="adminStatus" column="admin_status" ></result>
+    </resultMap>
+
+     <select id="findAdminByAdminName"  resultMap="resultAdmin">
+         select * from t_admin where admin_name = #{adminName}
+     </select>
+</mapper>
