@@ -1,5 +1,8 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Picture {
@@ -7,6 +10,8 @@ public class Picture {
 
     private String picturePath;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date pictureDate;
 
     private String pictureDescription;
@@ -51,5 +56,16 @@ public class Picture {
 
     public void setPictureStatus(String pictureStatus) {
         this.pictureStatus = pictureStatus == null ? null : pictureStatus.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "pictureId='" + pictureId + '\'' +
+                ", picturePath='" + picturePath + '\'' +
+                ", pictureDate=" + pictureDate +
+                ", pictureDescription='" + pictureDescription + '\'' +
+                ", pictureStatus='" + pictureStatus + '\'' +
+                '}';
     }
 }

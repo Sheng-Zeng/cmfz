@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.PictureDAO">
+    <resultMap id="SelectPicture" type="Picture">
+        <id property="pictureId" column="picture_id"></id>
+        <result property="picturePath" column="picture_path"></result>
+        <result property="pictureDate" column="picture_date"></result>
+        <result property="pictureDescription" column="picture_description"></result>
+        <result property="pictureStatus" column="picture_status"></result>
+    </resultMap>
+
+    <insert id="insertPicture">
+        insert into t_picture values (#{pictureId},#{picturePath},#{pictureDate},#{pictureDescription},#{pictureStatus})
+    </insert>
+
+    <select id="listPictures" resultMap="SelectPicture">
+        select * from t_picture limit #{begin},#{size}
+    </select>
+
+    <select id="getTotalMesage" resultType="Integer">
+        select count(*) from t_picture
+    </select>
+
+    <update id="updatePicture">
+        update t_picture set picture_status = #{pictureStatus}, picture_description = #{pictureDescription} where picture_id = #{pictureId}
+    </update>
+</mapper>

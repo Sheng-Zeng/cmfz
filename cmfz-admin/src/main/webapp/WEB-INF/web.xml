@@ -43,7 +43,7 @@
   </servlet-mapping>
 
   <welcome-file-list><!--指定欢迎页面-->
-    <welcome-file>login.jsp</welcome-file>
+    <welcome-file>/main/login/login.jsp</welcome-file>
   </welcome-file-list>
 
 

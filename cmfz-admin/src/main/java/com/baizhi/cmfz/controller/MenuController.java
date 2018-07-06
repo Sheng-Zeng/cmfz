@@ -1,10 +1,12 @@
 package com.baizhi.cmfz.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.baizhi.cmfz.entity.Menu;
 import com.baizhi.cmfz.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -30,11 +32,10 @@ public class MenuController {
     * @Date: 2018/7/5
     */
     @RequestMapping("/gold")
-    public String getMenu(HttpServletRequest request) {
+    @ResponseBody
+    public List<Menu> getMenu(HttpServletRequest request) {
         List<Menu> menus = menuService.goldMenu();
         request.setAttribute("menus", menus);
-        return "forward:/main/main.jsp";
+        return menus;
     }
-
-
 }

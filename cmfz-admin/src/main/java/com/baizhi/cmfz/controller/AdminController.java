@@ -40,10 +40,10 @@ public class AdminController {
             }
 
             if (admin != null) {
-                return "redirect:/menu/gold";
+                return "redirect:/main/main.jsp";
             }
         }
-        return "login";
+        return "redirect:/main/login/login.jsp";
     }
 
     @RequestMapping("/vcode")
