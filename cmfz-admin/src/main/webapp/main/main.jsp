@@ -37,7 +37,7 @@
                 if (name == "轮播图管理") {
                     $("#tt").tabs("add", {
                         title: name,
-                        href: "${pageContext.request.contextPath}/main/sliderShow.jsp",
+                        href: "${pageContext.request.contextPath}/main/picture/sliderShow.jsp",
                         closable: true,
                     });
                 } else {
