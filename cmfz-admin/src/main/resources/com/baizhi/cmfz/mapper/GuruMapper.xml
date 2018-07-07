@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.GuruDAO">
+    <resultMap id="resultGuru" type="com.baizhi.cmfz.entity.Guru">
+        <id property="guruId" column="guru_id"></id>
+        <result property="guruName" column="guru_name"></result>
+        <result property="guruPhoto" column="guru_photo" ></result>
+        <result property="guruSummary" column="guru_summary" ></result>
+    </resultMap>
+
+     <select id="listGurus"  resultMap="resultGuru">
+         select * from t_guru
+         <if test="name != null">
+             where ${name} like concat('%',#{value},'%')
+         </if>
+         limit #{begin},#{size}
+     </select>
+
+    <select id="getTotalMesage" resultType="java.lang.Integer">
+        select count(*) from t_guru
+        <if test="name != null">
+            where ${name} like concat('%',#{value},'%')
+        </if>
+    </select>
+
+    <delete id="deleteGuru">
+        delete from t_guru where guru_id = #{guruId}
+    </delete>
+
+    <update id="updateGuru">
+        update t_guru set guru_name = #{guruName}, guru_summary = #{guruSummary}
+        <if test="guruPhoto != null">
+            ,guru_photo = #{guruPhoto}
+        </if>
+        where guru_id = #{guruId}
+    </update>
+
+    <insert id="insertGuru" >
+        insert into t_guru values (#{guruId}, #{guruName}, #{guruPhoto}, #{guruSummary})
+    </insert>
+</mapper>

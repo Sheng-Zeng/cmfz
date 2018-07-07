@@ -37,10 +37,16 @@
                 if (name == "轮播图管理") {
                     $("#tt").tabs("add", {
                         title: name,
-                        href: "${pageContext.request.contextPath}/main/picture/sliderShow.jsp",
+                        href: "${pageContext.request.contextPath}/main/slidershow/sliderShow.jsp",
                         closable: true,
                     });
-                } else {
+                } else if (name == "上师管理") {
+                    $("#tt").tabs("add", {
+                        title: name,
+                        href: "${pageContext.request.contextPath}/main/guru/guruSliderShow.jsp",
+                        closable: true,
+                    });
+                }else {
                     $("#tt").tabs("add", {
                         title: name,
                         closable: true,

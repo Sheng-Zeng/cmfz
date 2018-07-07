@@ -30,9 +30,7 @@
                         } else {
                             $.messager.alert("提示","添加失败！");
                         }
-                        $("#addDiv").dialog({
-                            closed:true,
-                        });
+                        $("#addDiv").dialog("close",true);
                        $("#slider").datagrid('reload');
                     }
                 });

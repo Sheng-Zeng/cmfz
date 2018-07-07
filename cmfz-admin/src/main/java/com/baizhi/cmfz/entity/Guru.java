@@ -40,4 +40,14 @@ public class Guru {
     public void setGuruSummary(String guruSummary) {
         this.guruSummary = guruSummary == null ? null : guruSummary.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Guru{" +
+                "guruId='" + guruId + '\'' +
+                ", guruName='" + guruName + '\'' +
+                ", guruPhoto='" + guruPhoto + '\'' +
+                ", guruSummary='" + guruSummary + '\'' +
+                '}';
+    }
 }

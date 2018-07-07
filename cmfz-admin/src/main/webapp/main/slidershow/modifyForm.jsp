@@ -28,9 +28,7 @@
                         } else {
                             $.messager.alert("提示","更改失败！");
                         }
-                        $("#modifyDiv").dialog({
-                            closed:true,
-                        });
+                        $("#modifyDiv").dialog("close",true);
                         $("#slider").datagrid('reload');
                     }
                 });
