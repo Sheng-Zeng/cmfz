@@ -1,12 +1,20 @@
 package com.baizhi.cmfz.entity;
 
-public class Guru {
+import cn.afterturn.easypoi.excel.annotation.Excel;
+
+import javax.validation.constraints.Pattern;
+
+public class Guru{
+    @Excel(name = "id")
     private String guruId;
 
+    @Excel(name = "姓名")
+    @Pattern(regexp =  "[\\u4E00-\\u9FA5]{2,5}", message = "姓名中文2-5位")
     private String guruName;
 
     private String guruPhoto;
 
+    @Excel(name = "描述")
     private String guruSummary;
 
     public String getGuruId() {

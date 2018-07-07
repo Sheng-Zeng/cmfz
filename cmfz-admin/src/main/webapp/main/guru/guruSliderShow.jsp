@@ -65,7 +65,7 @@
                 result = data;
             }
         });
-        if (result == 1 ) {
+        if (result == "1" ) {
             $.messager.alert('提示','删除成功！');
         } else {
             $.messager.alert('提示','删除失败！');
@@ -99,6 +99,7 @@
 </script>
 <table id="guruSlider"></table>
 <div id="guruAddDiv"></div>
+<div id="gurueasyPoiDiv"></div>
 <div id="guruModifyDiv"></div>
 <div id="guruDeleteDiv"></div>
 <table id="guruModify"></table>
@@ -115,11 +116,11 @@
 				}"></a>
     <a class="easyui-linkbutton"
        data-options="iconCls:'icon-add',plain:true,text:'批量插入上师',onClick: function(){
-					$('#guruAddDiv').dialog({
+					$('#gurueasyPoiDiv').dialog({
 					    title:'批量插入上师',
 					    width:600,
 					    height:300,
-					    href: '${pageContext.request.contextPath}/main/guru/addForm.jsp',
+					    href: '${pageContext.request.contextPath}/main/guru/easyPoiForm.jsp',
 					    modal: true
 					});
 				}"></a>
