@@ -49,4 +49,10 @@ public class GuruServiceImpl implements GuruService {
     public Integer addGuru(Guru guru) {
         return guruDAO.insertGuru(guru);
     }
+
+    @Override
+    public List<Guru> listGurns() {
+        List<Guru> gurus = guruDAO.listGurus(null,null,0,guruDAO.getTotalMesage(null,null));
+        return gurus;
+    }
 }

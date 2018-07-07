@@ -2,6 +2,7 @@ package com.baizhi.cmfz.service;
 
 import com.baizhi.cmfz.entity.Guru;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,4 +48,13 @@ public interface GuruService {
     * @Date: 2018/7/6
     */
     Integer addGuru(Guru guru);
+    
+    /** 
+    * @Description: 导出所有上师 
+    * @Param: [] 
+    * @return: java.util.List<com.baizhi.cmfz.entity.Guru> 
+    * @Author: zs
+    * @Date: 2018/7/7 
+    */
+    List<Guru> listGurns();
 }
