@@ -133,6 +133,6 @@
            data-options="searcher:GuruSearch,prompt:'Please Input Value', menu:'#guruMM'"></input>
     <div id="guruMM">
         <div data-options="name:'guru_name',iconCls:'icon-ok'">法名</div>
-        <div data-options="name:'guru_summary',iconCls:'icon-ok'">描述</div>
+        <div data-options="name:'guru_summary',iconCls:'icon-ok'">描述 </div>
     </div>
 </div>

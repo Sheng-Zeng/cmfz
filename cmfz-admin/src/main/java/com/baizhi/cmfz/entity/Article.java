@@ -62,4 +62,16 @@ public class Article {
     public void setArticlePicturePic(String articlePicturePic) {
         this.articlePicturePic = articlePicturePic == null ? null : articlePicturePic.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "articleId='" + articleId + '\'' +
+                ", articleName='" + articleName + '\'' +
+                ", guruId='" + guruId + '\'' +
+                ", articleIntroduction='" + articleIntroduction + '\'' +
+                ", articleDate=" + articleDate +
+                ", articlePicturePic='" + articlePicturePic + '\'' +
+                '}';
+    }
 }
