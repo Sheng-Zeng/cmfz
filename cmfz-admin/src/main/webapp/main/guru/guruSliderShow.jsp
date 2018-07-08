@@ -126,7 +126,7 @@
 				}"></a>
     <a class="easyui-linkbutton"
        data-options="iconCls:'icon-add',plain:true,text:'导出所有上师',onClick: function(){
-		    window.location.href = 'http://localhost:8088/cmfz-admin/easypoi/export';
+		    window.location.href = '${pageContext.request.contextPath}/easypoi/export';
 				}"></a>
     <input id="guruSS" class="easyui-searchbox" style="width:300px"
            data-options="searcher:GuruSearch,prompt:'Please Input Value', menu:'#guruMM'"></input>
