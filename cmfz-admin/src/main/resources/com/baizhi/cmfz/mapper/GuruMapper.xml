@@ -35,7 +35,14 @@
         where guru_id = #{guruId}
     </update>
 
-    <insert id="insertGuru" >
+    <insert id="insertGuru">
         insert into t_guru values (#{guruId}, #{guruName}, #{guruPhoto}, #{guruSummary})
+    </insert>
+
+    <insert id="insertAllGurn">
+        insert into t_guru values
+        <foreach collection="gurus" separator="," item="guru">
+            (#{guru.guruId}, #{guru.guruName}, #{guru.guruPhoto}, #{guru.guruSummary})
+        </foreach>
     </insert>
 </mapper>

@@ -22,9 +22,9 @@
 
                         } else {
                             $.messager.alert("提示","添加失败！");
-                        }
+                        };
                         $("#gurueasyPoiDiv").dialog("close",true);
-                       $("#gurueasyPoiDiv").datagrid('reload');
+                        $("#guruSlider").datagrid('reload');
                     }
                 });
             },

@@ -42,7 +42,7 @@ public class GuruEasyPoiController {
     @RequestMapping("/excelImport")
     @ResponseBody
     public String excelImport(MultipartFile file) {
-        int resultTotal = 1;
+        int resultTotal = 0;
         ImportParams importParams = new ImportParams();
 
         // 数据处理
@@ -69,11 +69,10 @@ public class GuruEasyPoiController {
 
                 String uuidName = UUID.randomUUID().toString().replace("-", "");
                 guru.setGuruId(uuidName);
-                int judge = guruService.addGuru(guru);
-                if (judge == 0) {
-                    resultTotal = 0;
-                }
+                guru.setGuruPhoto("badde3b8ee2449b784ade0cb61250894.jpg");
             }
+
+            resultTotal = guruService.addGurus(successList);
 
             for (Guru guru : failList) {
                 log.info("失败列表信息：" + guru);
@@ -82,7 +81,7 @@ public class GuruEasyPoiController {
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
-        if (resultTotal == 1) {
+        if (resultTotal >= 1) {
             return "success";
         } else {
             return "error";

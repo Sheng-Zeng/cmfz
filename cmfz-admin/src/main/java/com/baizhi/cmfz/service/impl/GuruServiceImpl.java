@@ -55,4 +55,9 @@ public class GuruServiceImpl implements GuruService {
         List<Guru> gurus = guruDAO.listGurus(null,null,0,guruDAO.getTotalMesage(null,null));
         return gurus;
     }
+
+    @Override
+    public Integer addGurus(List<Guru> gurus) {
+        return guruDAO.insertAllGurn(gurus);
+    }
 }

@@ -58,4 +58,13 @@ public interface GuruDAO {
     * @Date: 2018/7/6
     */
     Integer updateGuru(Guru guru);
+
+    /** 
+    * @Description: 批量导入上师
+    * @Param: [gurus] 
+    * @return: java.lang.Integer 
+    * @Author: zs
+    * @Date: 2018/7/8 
+    */
+    Integer insertAllGurn(@Param("gurus") List<Guru> gurus);
 }

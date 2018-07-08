@@ -57,4 +57,13 @@ public interface GuruService {
     * @Date: 2018/7/7 
     */
     List<Guru> listGurns();
+    
+    /** 
+    * @Description: 批量插入 
+    * @Param: [gurus] 
+    * @return: java.lang.Integer 
+    * @Author: zs
+    * @Date: 2018/7/8 
+    */
+    Integer addGurus(List<Guru> gurus);
 }
