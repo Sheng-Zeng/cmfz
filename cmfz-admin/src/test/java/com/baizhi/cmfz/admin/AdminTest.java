@@ -1,13 +1,7 @@
 package com.baizhi.cmfz.admin;
 
-import com.baizhi.cmfz.dao.AdminDAO;
-import com.baizhi.cmfz.dao.GuruDAO;
-import com.baizhi.cmfz.dao.MenuDAO;
-import com.baizhi.cmfz.dao.PictureDAO;
-import com.baizhi.cmfz.entity.Admin;
-import com.baizhi.cmfz.entity.Guru;
-import com.baizhi.cmfz.entity.Menu;
-import com.baizhi.cmfz.entity.Picture;
+import com.baizhi.cmfz.dao.*;
+import com.baizhi.cmfz.entity.*;
 import com.baizhi.cmfz.service.AdminService;
 import com.baizhi.cmfz.service.impl.AdminServiceImpl;
 import org.junit.Test;
@@ -48,6 +42,16 @@ public class AdminTest {
         GuruDAO guruDAO = (GuruDAO) applicationContext.getBean("guruDAO");
         List<Guru> gurus = guruDAO.listGurus(null, null,0,5);
         for (Guru guru : gurus)  {
+            System.out.println(guru);
+        }
+    }
+
+    @Test
+    public void testArticle() {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        ArticleDAO articleDAO = (ArticleDAO) applicationContext.getBean("articleDAO");
+        List<Article> gurus = articleDAO.listArticle(null,0,5);
+        for (Article guru : gurus)  {
             System.out.println(guru);
         }
     }

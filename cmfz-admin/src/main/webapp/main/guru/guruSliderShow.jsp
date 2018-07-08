@@ -103,7 +103,6 @@
 <div id="gurueasyPoiDiv"></div>
 <div id="guruModifyDiv"></div>
 <div id="guruDeleteDiv"></div>
-<table id="guruModify"></table>
 <div id="guruTb" style="display: none">
     <a class="easyui-linkbutton"
        data-options="iconCls:'icon-add',plain:true,text:'新增上师',onClick: function(){

@@ -1,5 +1,8 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Article {
@@ -11,6 +14,8 @@ public class Article {
 
     private String articleIntroduction;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date articleDate;
 
     private String articlePicturePic;

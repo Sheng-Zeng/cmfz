@@ -100,4 +100,3 @@
 <table id="slider"></table>
 <div id="addDiv"></div>
 <div id="modifyDiv"></div>
-<table id="pitModify"></table>
