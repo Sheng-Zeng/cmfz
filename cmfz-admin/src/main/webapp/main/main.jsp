@@ -18,7 +18,7 @@
                 $.each(res, function (index, obj) {
                     var content = "";
                     $.each(obj.childMenus, function (index1, obj1) {
-                        content += "<p style=\"text-align:center\" ><a class=\"easyui-linkbutton\" data-options=\"iconCls:'" + obj1.menuIcon + "', plain:true \" onclick=\"addAccord('" + obj1.menuName + "')\">" + obj1.menuName + "</a></p>"
+                        content += "<p style=\"text-align:center\" ><a class=\"easyui-linkbutton\" data-options=\"iconCls:'" + obj1.menuIcon + "', plain:true \" onclick=\"addAccord('" + obj1.menuName + "','" + obj1.menuUrl + "')\">" + obj1.menuName + "</a></p>"
                     });
                     $('#aa').accordion('add', {
                         title: obj.menuName,
@@ -30,28 +30,15 @@
             }, "JSON");
         });
 
-        function addAccord(name) {
+        function addAccord(name,menuUrl) {
             var res = $("#tt").tabs("exists", name);
             if (!res) {
                 console.log(name);
-                if (name == "轮播图管理") {
                     $("#tt").tabs("add", {
                         title: name,
-                        href: "${pageContext.request.contextPath}/main/slidershow/sliderShow.jsp",
+                        href: "${pageContext.request.contextPath}"+menuUrl,
                         closable: true,
                     });
-                } else if (name == "上师管理") {
-                    $("#tt").tabs("add", {
-                        title: name,
-                        href: "${pageContext.request.contextPath}/main/guru/guruSliderShow.jsp",
-                        closable: true,
-                    });
-                }else {
-                    $("#tt").tabs("add", {
-                        title: name,
-                        closable: true,
-                    });
-                }
             } else {
                 $("#tt").tabs("select", name);
             }
