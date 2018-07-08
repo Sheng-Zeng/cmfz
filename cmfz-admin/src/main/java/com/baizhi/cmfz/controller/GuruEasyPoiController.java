@@ -6,7 +6,6 @@ import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
 import cn.afterturn.easypoi.handler.inter.IExcelDataHandler;
-import com.baizhi.cmfz.dao.GuruDAO;
 import com.baizhi.cmfz.entity.Guru;
 import com.baizhi.cmfz.service.GuruService;
 import com.baizhi.cmfz.util.GuruExcelHandler;
@@ -108,12 +107,6 @@ public class GuruEasyPoiController {
             log.error(e.getMessage(), e);
         }
     }
-
-    /***
-     * 创建模拟数据
-     *
-     * @return
-     */
 }
 
 
