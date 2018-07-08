@@ -58,15 +58,15 @@
                handler: function(){
                    $("#addDiv").dialog({
                        title: "新增轮播图",
-                       width: 600,
-                       height: 300,
+                       width: 300,
+                       height: 150,
                        iconCls:"icon-add",
                        collapsible:true,
                        minimizable:true,
                        maximizable:true,
                        resizable:true,
                        href: "${pageContext.request.contextPath}/main/slidershow/addForm.jsp",
-                       modal: true
+                       modal: true,
                    });
                },
            },'-',{
@@ -83,8 +83,9 @@
     function editRow(pictureId,pictureStatus,pictureDescription) {
         $("#modifyDiv").dialog({
             title:'修改',
-            width:600,
-            height:300,
+            width:300,
+            height:150,
+            modal: true,
             href: '${pageContext.request.contextPath}/main/slidershow/modifyForm.jsp',
             onLoad:function(){
                 $("#modifyForm").form('load',{

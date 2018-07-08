@@ -43,6 +43,13 @@
                 });
             },
         });
+
+        $("#GuruCancleSub").linkbutton({
+            text : "取消",
+            onClick: function () {
+                $("#guruAddDiv").dialog("close",true);
+            }
+        })
     });
 </script>
 <form id="GuruAddForm" method="post" enctype="multipart/form-data">
@@ -61,6 +68,7 @@
         </tr>
         <tr>
             <td><a id="GuruAddSub"></a></td>
+            <td><a id="GuruCancleSub"></a></td>
         </tr>
     </table>
 </form>

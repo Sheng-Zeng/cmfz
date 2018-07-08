@@ -76,9 +76,10 @@
     function guruEditRow(guruId, guruName, guruPhoto, guruSummary) {
         $("#guruModifyDiv").dialog({
             title: '修改',
-            width: 600,
-            height: 300,
+            width: 300,
+            height: 150,
             href: '${pageContext.request.contextPath}/main/guru/modifyForm.jsp',
+            modal: true,
             onLoad: function () {
                 $("#GuruModifyForm").form('load', {
                     guruId: guruId,
@@ -108,20 +109,20 @@
        data-options="iconCls:'icon-add',plain:true,text:'新增上师',onClick: function(){
 					$('#guruAddDiv').dialog({
 					    title:'新增上师',
-					    width:600,
-					    height:300,
+					    width:300,
+					    height:150,
 					    href: '${pageContext.request.contextPath}/main/guru/addForm.jsp',
-					    modal: true
+					    modal: true,
 					});
 				}"></a>
     <a class="easyui-linkbutton"
        data-options="iconCls:'icon-add',plain:true,text:'批量插入上师',onClick: function(){
 					$('#gurueasyPoiDiv').dialog({
 					    title:'批量插入上师',
-					    width:600,
-					    height:300,
+					    width:300,
+					    height:150,
 					    href: '${pageContext.request.contextPath}/main/guru/easyPoiForm.jsp',
-					    modal: true
+					    modal: true,
 					});
 				}"></a>
     <a class="easyui-linkbutton"

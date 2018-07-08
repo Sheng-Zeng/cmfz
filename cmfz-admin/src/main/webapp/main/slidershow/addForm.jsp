@@ -36,6 +36,13 @@
                 });
             },
         });
+
+        $("#CancleSub").linkbutton({
+            text : "取消",
+            onClick: function () {
+                $("#addDiv").dialog("close",true);
+            }
+        })
     });
 </script>
 <form id="addForm" method="post" enctype="multipart/form-data">
@@ -58,6 +65,7 @@
         </tr>
         <tr>
             <td><a id="addSub"></a></td>
+            <td><a id="CancleSub"></a></td>
         </tr>
     </table>
 </form>

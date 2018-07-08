@@ -35,6 +35,12 @@
             },
         });
 
+        $("#CancleModifySub").linkbutton({
+            text : "取消",
+            onClick: function () {
+                $("#modifyDiv").dialog("close",true);
+            }
+        })
     });
 
 </script>
@@ -55,6 +61,7 @@
         </tr>
         <tr>
             <td><a id="ModifySub"></a></td>
+            <td><a id="CancleModifySub"></a></td>
         </tr>
     </table>
 

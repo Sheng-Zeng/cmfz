@@ -24,11 +24,18 @@
                             $.messager.alert("提示","添加失败！");
                         }
                         $("#gurueasyPoiDiv").dialog("close",true);
-                       $("#guruSlider").datagrid('reload');
+                       $("#gurueasyPoiDiv").datagrid('reload');
                     }
                 });
             },
         });
+
+        $("#GuruCanaleEasyPoiSub").linkbutton({
+            text : "取消",
+            onClick: function () {
+                $("#gurueasyPoiDiv").dialog("close",true);
+            }
+        })
     });
 </script>
 <form id="GurueasyPoiForm" method="post" enctype="multipart/form-data">
@@ -39,6 +46,7 @@
         </tr>
         <tr>
             <td><a id="GuruEasyPoiSub"></a></td>
+            <td><a id="GuruCanaleEasyPoiSub"></a></td>
         </tr>
     </table>
 </form>
