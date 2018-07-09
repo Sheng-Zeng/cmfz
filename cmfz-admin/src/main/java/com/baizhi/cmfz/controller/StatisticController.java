@@ -38,8 +38,8 @@ public class StatisticController {
         List<Agreement> agreements = new ArrayList<Agreement>();
         agreements.add(new Agreement("北京","200"));
         agreements.add(new Agreement("天津","230"));
-        agreements.add(new Agreement("青海","300"));
-        agreements.add(new Agreement("西藏","400"));
+        agreements.add(new Agreement("广西","300"));
+        agreements.add(new Agreement("山西","400"));
         return agreements;
     }
 

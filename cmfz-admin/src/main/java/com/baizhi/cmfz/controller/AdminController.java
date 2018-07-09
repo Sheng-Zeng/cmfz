@@ -40,6 +40,7 @@ public class AdminController {
             }
 
             if (admin != null) {
+                session.setAttribute("adminName", admin.getAdminName());
                 return "redirect:/main/main.jsp";
             }
         }

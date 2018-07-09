@@ -2,7 +2,7 @@
 
 <div id="statistics_main" style="width: 600px;height: 400px;;margin-top: 30px;margin-left: 30px"></div>
 
-<script type="text/javascript">
+<script type="text/javascript">·
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('statistics_main'));
 

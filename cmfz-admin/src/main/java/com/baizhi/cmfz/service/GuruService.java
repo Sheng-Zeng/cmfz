@@ -66,4 +66,6 @@ public interface GuruService {
     * @Date: 2018/7/8 
     */
     Integer addGurus(List<Guru> gurus);
+    
+
 }

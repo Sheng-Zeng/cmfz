@@ -7,6 +7,7 @@ import com.baizhi.cmfz.service.impl.AdminServiceImpl;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class AdminTest {
@@ -55,4 +56,5 @@ public class AdminTest {
             System.out.println(guru);
         }
     }
+
 }
