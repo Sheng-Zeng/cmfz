@@ -46,7 +46,7 @@
         $("#articleDetails").dialog({
             title: '文章详情',
             maximizable:true,
-            width: 300,
+            width: 600,
             height: 600,
             resizable:true,
             onLoad:function(){

@@ -84,7 +84,7 @@ public class ArticleController {
     }
 
 
-    @RequestMapping("showAll")
+    @RequestMapping("/showAll")
     @ResponseBody
     public Map<String, Object> getAllArticle(Integer page, Integer rows) {
         return articleService.queryArticle(page,rows);

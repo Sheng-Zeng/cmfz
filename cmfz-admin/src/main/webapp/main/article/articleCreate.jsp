@@ -26,9 +26,28 @@
                     },
                     success : function(data) {
                         if(data=="success"){
-                            $.messager.alert("提示","创建成功！");
+                            $.messager.show({
+                                title:'提示消息',
+                                msg:'创建成功，消息将在4秒后关闭。',
+                                showType:'show',
+                                style:{
+                                    right:'',
+                                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                                    bottom:''
+                                }
+                            });
+
                         } else {
-                            $.messager.alert("提示","创建失败！");
+                            $.messager.show({
+                                title:'提示消息',
+                                msg:'创建失败，消息将在4秒后关闭。',
+                                showType:'show',
+                                style:{
+                                    right:'',
+                                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                                    bottom:''
+                                }
+                            });
                         }
                     }
                 });
