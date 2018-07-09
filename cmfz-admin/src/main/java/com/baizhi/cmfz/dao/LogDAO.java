@@ -1,6 +1,9 @@
 package com.baizhi.cmfz.dao;
 
 import com.baizhi.cmfz.entity.Log;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @program: 日志信息
@@ -19,5 +22,23 @@ public interface LogDAO {
     * @Date: 2018/7/9
     */
     Integer inserLog(Log log);
+
+    /**
+    * @Description: 获取所有日志
+    * @Param: [begin, size]
+    * @return: java.util.List<com.baizhi.cmfz.entity.Log>
+    * @Author: zs
+    * @Date: 2018/7/9
+    */
+    List<Log> listLogs(@Param("begin") Integer begin, @Param("size") Integer size);
+
+    /**
+    * @Description:
+    * @Param: []
+    * @return: java.lang.Integer
+    * @Author: zs
+    * @Date: 2018/7/9
+    */
+    Integer getTotalMesage();
 
 }

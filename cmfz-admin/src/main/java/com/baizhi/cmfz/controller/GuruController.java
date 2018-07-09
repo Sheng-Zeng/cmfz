@@ -1,16 +1,7 @@
 package com.baizhi.cmfz.controller;
 
-import cn.afterturn.easypoi.excel.ExcelImportUtil;
-import cn.afterturn.easypoi.excel.entity.ImportParams;
-import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
-import cn.afterturn.easypoi.handler.inter.IExcelDataHandler;
 import com.baizhi.cmfz.entity.Guru;
-import com.baizhi.cmfz.entity.Picture;
 import com.baizhi.cmfz.service.GuruService;
-import com.baizhi.cmfz.util.GuruExcelHandler;
-import org.apache.ibatis.annotations.Param;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 

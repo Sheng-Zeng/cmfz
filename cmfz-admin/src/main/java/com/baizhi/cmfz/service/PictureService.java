@@ -1,8 +1,7 @@
 package com.baizhi.cmfz.service;
 
-import com.baizhi.cmfz.entity.Picture;
+import com.baizhi.cmfz.entity.RichTextResult;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,12 +19,12 @@ public interface PictureService {
     * @Author: zs
     * @Date: 2018/7/5
     */
-    Integer addPicture(Picture picture);
+    Integer addPicture(RichTextResult.Picture picture);
 
     /** 
     * @Description: 查询轮播图 
     * @Param: [] 
-    * @return: java.util.List<com.baizhi.cmfz.entity.Picture> 
+    * @return: java.util.List<com.baizhi.cmfz.entity.RichTextResult.Picture>
     * @Author: zs
     * @Date: 2018/7/6 
     */

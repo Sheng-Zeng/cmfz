@@ -1,11 +1,6 @@
 package com.baizhi.cmfz.service;
 
-
-import com.baizhi.cmfz.dao.AdminDAO;
 import com.baizhi.cmfz.entity.Admin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 /**
  * @Description:管理员的业务处理
  * @Author:zs

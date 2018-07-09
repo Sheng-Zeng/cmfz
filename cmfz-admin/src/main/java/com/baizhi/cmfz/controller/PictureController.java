@@ -1,6 +1,6 @@
 package com.baizhi.cmfz.controller;
 
-import com.baizhi.cmfz.entity.Picture;
+import com.baizhi.cmfz.entity.RichTextResult;
 import com.baizhi.cmfz.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -40,7 +39,7 @@ public class PictureController {
         String oldName = picture.getOriginalFilename();
         String suffix = oldName.substring(oldName.lastIndexOf("."));
         picture.transferTo(new File(Newpath + "/" + uuidName + suffix));
-        Picture pict = new Picture();
+        RichTextResult.Picture pict = new RichTextResult.Picture();
         pict.setPictureDate(new Date());
         pict.setPictureDescription(desc);
         pict.setPicturePath(uuidName + suffix);

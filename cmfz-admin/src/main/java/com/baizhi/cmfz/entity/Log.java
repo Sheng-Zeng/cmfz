@@ -1,5 +1,8 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Log {
@@ -7,6 +10,8 @@ public class Log {
 
     private String logUser;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date logTime;
 
     private String logResource;

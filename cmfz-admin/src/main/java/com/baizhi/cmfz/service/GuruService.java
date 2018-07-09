@@ -16,7 +16,7 @@ public interface GuruService {
     /**
      * @Description: 查询所有上师
      * @Param: []
-     * @return: java.util.List<com.baizhi.cmfz.entity.Picture>
+     * @return: java.util.List<com.baizhi.cmfz.entity.RichTextResult.Picture>
      * @Author: zs
      * @Date: 2018/7/6
      */

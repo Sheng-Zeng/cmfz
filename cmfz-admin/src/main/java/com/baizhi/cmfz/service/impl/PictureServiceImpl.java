@@ -1,7 +1,7 @@
 package com.baizhi.cmfz.service.impl;
 
 import com.baizhi.cmfz.dao.PictureDAO;
-import com.baizhi.cmfz.entity.Picture;
+import com.baizhi.cmfz.entity.RichTextResult;
 import com.baizhi.cmfz.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,14 +24,14 @@ public class PictureServiceImpl implements PictureService {
     @Autowired
     private PictureDAO pictureDAO;
 
-    public Integer addPicture(Picture picture) {
+    public Integer addPicture(RichTextResult.Picture picture) {
         return pictureDAO.insertPicture(picture);
     }
 
     @Override
     public Map<String, Object> queryPicturs(Integer page, Integer single) {
         int begMes = (page-1) * single;
-        List<Picture> pictures = pictureDAO.listPictures(begMes,single);
+        List<RichTextResult.Picture> pictures = pictureDAO.listPictures(begMes,single);
         int total = pictureDAO.getTotalMesage();
         Map<String, Object> mapEmps = new HashMap<String, Object>();
         mapEmps.put("total", total);

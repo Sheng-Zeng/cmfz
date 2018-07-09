@@ -30,7 +30,6 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public Map<String, Object> queryArticle(Integer page, Integer single) {
-        System.out.println(page+"  "+single);
         int begMes = (page-1) * single;
         String id = null;
         List<Article> articles = articleDAO.listArticle(id,begMes,single);

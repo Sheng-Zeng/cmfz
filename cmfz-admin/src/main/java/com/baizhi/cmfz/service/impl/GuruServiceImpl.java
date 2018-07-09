@@ -2,7 +2,6 @@ package com.baizhi.cmfz.service.impl;
 
 import com.baizhi.cmfz.dao.GuruDAO;
 import com.baizhi.cmfz.entity.Guru;
-import com.baizhi.cmfz.entity.Picture;
 import com.baizhi.cmfz.service.GuruService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,28 +34,23 @@ public class GuruServiceImpl implements GuruService {
         return mapEmps;
     }
 
-    @Override
     public Integer dropGuru(String gurnId) {
         return guruDAO.deleteGuru(gurnId);
     }
 
-    @Override
     public Integer modifyGuru(Guru guru) {
         return guruDAO.updateGuru(guru);
     }
 
-    @Override
     public Integer addGuru(Guru guru) {
         return guruDAO.insertGuru(guru);
     }
 
-    @Override
     public List<Guru> listGurns() {
         List<Guru> gurus = guruDAO.listGurus(null,null,0,guruDAO.getTotalMesage(null,null));
         return gurus;
     }
 
-    @Override
     public Integer addGurus(List<Guru> gurus) {
         return guruDAO.insertAllGurn(gurus);
     }

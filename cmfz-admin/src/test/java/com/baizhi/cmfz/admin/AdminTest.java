@@ -2,12 +2,9 @@ package com.baizhi.cmfz.admin;
 
 import com.baizhi.cmfz.dao.*;
 import com.baizhi.cmfz.entity.*;
-import com.baizhi.cmfz.service.AdminService;
-import com.baizhi.cmfz.service.impl.AdminServiceImpl;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class AdminTest {
@@ -31,8 +28,8 @@ public class AdminTest {
     public void testPicture() {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         PictureDAO pictureDAO = (PictureDAO) applicationContext.getBean("pictureDAO");
-        List<Picture> pictures = pictureDAO.listPictures(1,1);
-        for (Picture picture : pictures) {
+        List<RichTextResult.Picture> pictures = pictureDAO.listPictures(1,1);
+        for (RichTextResult.Picture picture : pictures) {
             System.out.println(picture);
         }
     }
