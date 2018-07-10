@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class Log {
+public class LogMessage {
     private String logId;
 
     private String logUser;

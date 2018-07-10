@@ -1,21 +1,18 @@
 package com.baizhi.cmfz.util;
 
 import com.baizhi.cmfz.dao.LogDAO;
-import com.baizhi.cmfz.entity.Log;
+
+import com.baizhi.cmfz.entity.LogMessage;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.UUID;
@@ -49,7 +46,7 @@ public class ServiceLog {
         // UUID
         String uuidName = UUID.randomUUID().toString().replace("-","");
 
-        Log log = new Log();
+        LogMessage log = new LogMessage();
 
         log.setLogId(uuidName);
         log.setLogUser(adminName);

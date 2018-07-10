@@ -1,6 +1,6 @@
 package com.baizhi.cmfz.dao;
 
-import com.baizhi.cmfz.entity.RichTextResult;
+import com.baizhi.cmfz.entity.Picture;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface PictureDAO {
     * @Author: zs
     * @Date: 2018/7/5
     */
-    Integer insertPicture(RichTextResult.Picture picture);
+    Integer insertPicture(Picture picture);
 
     /**
     * @Description: 获取所有的轮播图
@@ -30,7 +30,7 @@ public interface PictureDAO {
     * @Author: zs
     * @Date: 2018/7/6
     */
-    List<RichTextResult.Picture> listPictures(@Param("begin") Integer begin , @Param("size") Integer size);
+    List<Picture> listPictures(@Param("begin") Integer begin , @Param("size") Integer size);
 
     /**
     * @Description: 获取总信息数

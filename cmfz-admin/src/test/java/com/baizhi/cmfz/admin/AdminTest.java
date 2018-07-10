@@ -28,8 +28,8 @@ public class AdminTest {
     public void testPicture() {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         PictureDAO pictureDAO = (PictureDAO) applicationContext.getBean("pictureDAO");
-        List<RichTextResult.Picture> pictures = pictureDAO.listPictures(1,1);
-        for (RichTextResult.Picture picture : pictures) {
+        List<Picture> pictures = pictureDAO.listPictures(1,1);
+        for (Picture picture : pictures) {
             System.out.println(picture);
         }
     }
@@ -51,6 +51,16 @@ public class AdminTest {
         List<Article> gurus = articleDAO.listArticle(null,0,5);
         for (Article guru : gurus)  {
             System.out.println(guru);
+        }
+    }
+
+    @Test
+    public void testLog() {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        LogDAO logDAO = (LogDAO) applicationContext.getBean("logDAO");
+        List<LogMessage> logMessages = logDAO.listLogs(0,10);
+        for (LogMessage logMessage : logMessages) {
+            System.out.println(logMessage);
         }
     }
 

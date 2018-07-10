@@ -1,9 +1,11 @@
 package com.baizhi.cmfz.dao;
 
-import com.baizhi.cmfz.entity.Log;
+
+import com.baizhi.cmfz.entity.LogMessage;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
 
 /**
  * @program: 日志信息
@@ -21,7 +23,7 @@ public interface LogDAO {
     * @Author: zs
     * @Date: 2018/7/9
     */
-    Integer inserLog(Log log);
+    Integer inserLog(LogMessage log);
 
     /**
     * @Description: 获取所有日志
@@ -30,7 +32,7 @@ public interface LogDAO {
     * @Author: zs
     * @Date: 2018/7/9
     */
-    List<Log> listLogs(@Param("begin") Integer begin, @Param("size") Integer size);
+    List<LogMessage> listLogs(@Param("begin") Integer begin, @Param("size") Integer size);
 
     /**
     * @Description:

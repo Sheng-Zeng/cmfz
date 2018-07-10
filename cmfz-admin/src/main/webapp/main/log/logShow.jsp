@@ -19,6 +19,7 @@
                 {field: 'logAction', title: '操作行为', sortable: true},
                 {field: 'logMessage', title: '操作信息', sortable: true},
                 {field: 'logResult', title: '操作是否成功', sortable: true}
+            ]]
         });
     });
 </script>

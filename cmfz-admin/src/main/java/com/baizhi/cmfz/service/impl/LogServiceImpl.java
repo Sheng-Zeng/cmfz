@@ -1,7 +1,8 @@
 package com.baizhi.cmfz.service.impl;
 
 import com.baizhi.cmfz.dao.LogDAO;
-import com.baizhi.cmfz.entity.Log;
+
+import com.baizhi.cmfz.entity.LogMessage;
 import com.baizhi.cmfz.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class LogServiceImpl implements LogService {
 
     public Map<String, Object> queryAllLog(Integer page, Integer single) {
         int begMes = (page-1) * single;
-        List<Log> logs = logDAO.listLogs(begMes,single);
+        List<LogMessage> logs = logDAO.listLogs(begMes,single);
         int total = logDAO.getTotalMesage();
         Map<String, Object> mapEmps = new HashMap<String, Object>();
         mapEmps.put("total", total);
