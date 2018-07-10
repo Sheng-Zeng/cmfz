@@ -2,6 +2,16 @@ package com.baizhi.cmfz.admin;
 
 import com.baizhi.cmfz.dao.*;
 import com.baizhi.cmfz.entity.*;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.realm.jdbc.JdbcRealm;
+import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -61,6 +71,32 @@ public class AdminTest {
         List<LogMessage> logMessages = logDAO.listLogs(0,10);
         for (LogMessage logMessage : logMessages) {
             System.out.println(logMessage);
+        }
+    }
+
+    @Test
+    public void testShiro() {
+        Realm realm = new JdbcRealm();
+
+        // 初始化基于ini配置文件的安全管理工厂
+        IniSecurityManagerFactory iniSecurityManagerFactory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        // 通过安全工厂创建安全管理器
+        SecurityManager securityManager = iniSecurityManagerFactory.createInstance();
+        // 对安全管理器初始化
+        SecurityUtils.setSecurityManager(securityManager);
+        // 获取当前访问系统的主体对象
+        Subject subject = SecurityUtils.getSubject();
+
+        // 认证
+        AuthenticationToken authenticationToken = new UsernamePasswordToken("admin","a0c36e79de341654592ddb90b128a7a2");
+
+        try {
+            subject.login(authenticationToken);
+            System.out.println("验证成功！");
+        } catch (UnknownAccountException e) {
+            System.err.println("用户不存在！");
+        }   catch (IncorrectCredentialsException e) {
+            System.err.println("密码错误！");
         }
     }
 

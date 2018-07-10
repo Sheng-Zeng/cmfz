@@ -37,8 +37,6 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <bean id="myAspect" class="com.baizhi.cmfz.util.ServiceLog"></bean>
-
     <aop:aspectj-autoproxy/>
 
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
