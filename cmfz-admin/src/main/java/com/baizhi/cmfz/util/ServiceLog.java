@@ -62,6 +62,7 @@ public class ServiceLog {
             totalArg += " ";
         }
         log.setLogMessage(totalArg);
+        // 返回目标方法的签名
         MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
         // 获取方法对象
         Method method = methodSignature.getMethod();

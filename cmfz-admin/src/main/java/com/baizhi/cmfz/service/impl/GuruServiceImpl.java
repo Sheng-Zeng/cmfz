@@ -19,7 +19,7 @@ import java.util.Map;
  **/
 @Service
 @Transactional
-public class GuruServiceImpl implements GuruService {
+public class  GuruServiceImpl implements GuruService {
 
     @Autowired
     private GuruDAO guruDAO;

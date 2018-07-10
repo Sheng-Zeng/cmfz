@@ -57,8 +57,8 @@ public class GuruEasyPoiController {
             ExcelImportResult<Guru> result = ExcelImportUtil.importExcelMore(file.getInputStream(), Guru.class, importParams);
             List<Guru> successList = result.getList();
             List<Guru> failList = result.getFailList();
-            log.info("是否存在验证未通过的数据：" + result.isVerfiyFail());
-            log.info("验证通过的数量" + successList.size());
+            log.info("是否存在验证未通过的数据:{}",result.isVerfiyFail());
+            log.info("验证通过的数量:{}", successList.size());
             log.info("验证未通过的数量" + failList.size());
 
             for (Guru guru : successList) {

@@ -8,9 +8,8 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.realm.Realm;
-import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -76,7 +75,8 @@ public class AdminTest {
 
     @Test
     public void testShiro() {
-        Realm realm = new JdbcRealm();
+
+        Md5Hash md5Hash = new Md5Hash("admin", "abcdef", 512);
 
         // 初始化基于ini配置文件的安全管理工厂
         IniSecurityManagerFactory iniSecurityManagerFactory = new IniSecurityManagerFactory("classpath:shiro.ini");
@@ -88,7 +88,7 @@ public class AdminTest {
         Subject subject = SecurityUtils.getSubject();
 
         // 认证
-        AuthenticationToken authenticationToken = new UsernamePasswordToken("admin","a0c36e79de341654592ddb90b128a7a2");
+        AuthenticationToken authenticationToken = new UsernamePasswordToken("admin","admin");
 
         try {
             subject.login(authenticationToken);
@@ -97,6 +97,7 @@ public class AdminTest {
             System.err.println("用户不存在！");
         }   catch (IncorrectCredentialsException e) {
             System.err.println("密码错误！");
+            System.out.println(md5Hash);
         }
     }
 

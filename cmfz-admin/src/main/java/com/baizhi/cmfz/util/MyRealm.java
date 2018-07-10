@@ -6,6 +6,7 @@ import com.baizhi.cmfz.entity.Admin;
 import com.baizhi.cmfz.service.AdminService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.realm.AuthenticatingRealm;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class MyRealm extends AuthenticatingRealm {
         System.out.println(upToken.getUsername());
         System.out.println(admin);
         if (admin != null) {
-            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(admin.getAdminName(),admin.getAdminPwd(),admin.getAdminId());
+            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(admin.getAdminName(),admin.getAdminPwd(), ByteSource.Util.bytes(admin.getAdminSolt()),admin.getAdminId() );
             return simpleAuthenticationInfo;
         }
         return null;
