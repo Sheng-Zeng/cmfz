@@ -4,6 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.baizhi.cmfz.entity.Admin;
 import com.baizhi.cmfz.service.AdminService;
 import com.baizhi.cmfz.util.VerifyCodeUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,26 +27,25 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("/login")
-    public String adminLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session, String adminName, String adminPwd, String enCode, String rember) {
+    public String adminLogin(HttpSession session, String adminName, String adminPwd, String enCode, Boolean rember) {
+        if (rember == null) {
+           rember = false;
+        }
         String vcode = (String) session.getAttribute("vercode");
         if (vcode!=null && vcode.equalsIgnoreCase(enCode)) {
-            Admin admin = adminService.adminLogin(adminName,adminPwd);
-            if (rember!=null && "true".equalsIgnoreCase(rember)) {
-                String username = null;
-                try {
-                    username = URLEncoder.encode(adminName,"utf-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                Cookie cookie = new Cookie("adminName",username);
-                cookie.setMaxAge(60*60*24*7);
-                cookie.setPath(request.getContextPath());
-                response.addCookie(cookie);
-            }
-
-            if (admin != null) {
-                session.setAttribute("adminName", admin.getAdminName());
+            // 在web环境中安全管理器会自动进行初始化
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(adminName, adminPwd,rember);
+            try {
+                subject.login(token);
+                session.setAttribute("adminName", adminName);
                 return "redirect:/main/main.jsp";
+            } catch (UnknownAccountException e) {
+                System.err.println("用户不存在！");
+                return "redirect:/main/login/login.jsp";
+            }   catch (IncorrectCredentialsException e) {
+                System.err.println("密码错误！");
+                return "redirect:/main/login/login.jsp";
             }
         }
         return "redirect:/main/login/login.jsp";

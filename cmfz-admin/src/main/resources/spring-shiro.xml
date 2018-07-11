@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--开启shiro的注解-->
+    <bean id="advisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+        <property name="proxyTargetClass" value="true"></property>
+    </bean>
+
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"></property>
+        <property name="hashIterations" value="512"></property>
+    </bean>
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"/>
+    <!--注入自定义的Realm-->
+    <bean id="myRealm" class="com.baizhi.cmfz.util.MyRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"></property>
+    </bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"></property>
+        <property name="rememberMeManager" ref="cookieRememberMeManager"></property>
+    </bean>
+
+    <!--配置ShiroFilter-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"></property>
+        <!--登入页面-->
+        <property name="loginUrl" value="/main/login/login.jsp"></property>
+        <!--登入成功页面-->
+        <property name="successUrl" value="/main/main.jsp"/>
+        <!--<property name="filters">-->
+            <!--<map>-->
+                <!--&lt;!&ndash;退出过滤器&ndash;&gt;-->
+                <!--<entry key="logout" value-ref="logoutFilter" />-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--URL的拦截-->
+        <property name="filterChainDefinitions" >
+            <value>
+                /main/login/** = anon
+                /main/log/logShow.jsp = roles[root]
+                /main/** = user
+                /** = anon
+            </value>
+        </property>
+    </bean>
+
+
+    <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="simpleCookie"></property>
+    </bean>
+
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="admin"></property>
+        <property name="maxAge" value="604800"></property>
+        <property name="path" value="/"></property>
+    </bean>
+
+    <!--&lt;!&ndash;自定义退出LogoutFilter&ndash;&gt;-->
+    <!--<bean id="logoutFilter" class="com.test.filter.SystemLogoutFilter">-->
+        <!--<property name="redirectUrl" value="/login"/>-->
+    <!--</bean>-->
+</beans>

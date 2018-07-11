@@ -40,4 +40,25 @@
         <property name="prefix" value="/"></property>
     </bean>
 
+    <!--<bean  class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--&lt;!&ndash;表示捕获的异常 &ndash;&gt;-->
+                <!--<prop key="org.apache.shiro.authz.UnauthorizedException">-->
+                    <!--&lt;!&ndash;捕获该异常时跳转的路径 &ndash;&gt;-->
+                    <!--/403-->
+                <!--</prop>-->
+                <!--&lt;!&ndash;表示捕获的异常 &ndash;&gt;-->
+                <!--<prop key="org.apache.shiro.authz.UnauthenticatedException">-->
+                    <!--&lt;!&ndash;捕获该异常时跳转的路径 &ndash;&gt;-->
+                    <!--/403-->
+                <!--</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <aop:config proxy-target-class="true"></aop:config>
+
+    <bean id="authorizationAttributeSourceAdvisor" class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager" ></property>
+    </bean>
 </beans>
